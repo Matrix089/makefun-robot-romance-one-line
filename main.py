@@ -23,6 +23,8 @@ def validate_line(line: str) -> None:
     # so any accidental wording change fails loudly instead of silently
     # shipping a different (or over-long) entry.
     assert len(line) == 100, f"line is {len(line)} characters, expected 100"
+    assert "CAPTCHA" in line, "line must keep its CAPTCHA premise"
+    assert "?" in line, "line must be a pickup-line question"
     assert "\n" not in line, "line must be a single line"
     assert "\r" not in line, "line must be a single line"
     assert 1 <= len(line) <= 200, f"line is {len(line)} characters"
